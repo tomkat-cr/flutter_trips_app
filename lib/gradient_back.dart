@@ -10,7 +10,11 @@ class GradientBack extends StatelessWidget{
   final String title;
   final String subtitle;
 
-  GradientBack(this.title, this.subtitle);
+  GradientBack
+    ({Key? key,
+      this.title = '',
+      this.subtitle = '',
+    }) : super(key: key);
 
   @override
   Widget build(BuildContext context){
