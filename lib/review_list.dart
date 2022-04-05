@@ -14,21 +14,21 @@ class ReviewList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final growableList = <Widget>[];
+      final growableList = <Widget>[];
 
-    reviewList.forEach((e){
-      growableList.add(
-        Review(
-          pathImage: e['pathImage'],
-          name: e['name'],
-          // details: e['details'],
-          comment: e['comment'],
-          stars: e['stars'],
-          reviewsQty: (e['reviewsQty'] == null ? 0 : e['reviewsQty']),
-          photosQty: (e['photosQty'] == null ? 0 : e['photosQty']),
-        ),
-      );
-    });
+      reviewList.forEach((e){
+        growableList.add(
+          Review(
+            pathImage: e['pathImage'],
+            name: e['name'],
+            // details: e['details'],
+            comment: e['comment'],
+            stars: e['stars'],
+            reviewsQty: (e['reviewsQty'] == null ? 0 : e['reviewsQty']),
+            photosQty: (e['photosQty'] == null ? 0 : e['photosQty']),
+          ),
+        );
+      });
 
     return Column(
       children: growableList,

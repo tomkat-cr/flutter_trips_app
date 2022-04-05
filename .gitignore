@@ -44,3 +44,11 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Images
+assets/img/Clari.Mediabros.jpg
+assets/img/LuisRaa.Dic.2019.jpg
+assets/img/LuisRaa.Dic.2021.jpg
+assets/img/Omar.Muy.Osito.en.Ojo.De.Agua.jpg
+assets/img/Omar.Rey.jpg
+assets/img/Omar.Turco.jpg
