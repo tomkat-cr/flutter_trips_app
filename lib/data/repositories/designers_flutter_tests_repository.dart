@@ -16,11 +16,11 @@ class DesignersFlutterTestsRepository {
   }
 
   Future<Map> fetchDesignersFlutterTestsWithError(int page) async {
-    final DesignersFlutterTests = await service.fetchDesignersFlutterTests(page);
+    final designersFlutterTests = await service.fetchDesignersFlutterTests(page);
     return {
-      'error': DesignersFlutterTests['error'] as bool,
-      'errorMessage': DesignersFlutterTests['errorMessage'] as String,
-      'resultset': DesignersFlutterTests['resultset']
+      'error': designersFlutterTests['error'] as bool,
+      'errorMessage': designersFlutterTests['errorMessage'] as String,
+      'resultset': designersFlutterTests['resultset']
           .map((e) => DesignersFlutterTest.fromJson(e))
           .toList() as List<dynamic>,
     };

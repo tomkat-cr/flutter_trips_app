@@ -67,7 +67,7 @@ class Review extends StatelessWidget {
           top: 10.0,
           left: 10.0
       ),
-      child: getStars(
+      child: GetStars(
         stars: stars,
         size: 15,
         top: 0.0,

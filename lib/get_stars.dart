@@ -3,14 +3,14 @@
 
 import 'package:flutter/material.dart';
 
-class getStars extends StatelessWidget {
+class GetStars extends StatelessWidget {
 
   final double stars;
   final double size;
   final double top;
   final String fontFamily;
 
-  getStars(
+  GetStars(
       {Key? key,
         required this.stars,
         this.size = 10.0,

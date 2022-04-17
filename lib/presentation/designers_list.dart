@@ -2,10 +2,9 @@
 // 2022-04-04 | CR
 
 import 'package:flutter/material.dart';
-
+import 'package:platzi_trips_app/button_back.dart';
 import '/data/services/designers_flutter_test_service.dart';
 import '/data/repositories/designers_flutter_tests_repository.dart';
-// import '/data/models/designers_flutter_test.dart';
 import 'designer.dart';
 
 class DesignersList extends StatefulWidget {
@@ -24,11 +23,19 @@ class _DesignersListState extends State<DesignersList> {
     DesignersFlutterTestsRepository(DesignersFlutterTestService());
 
   void fetchDesigners() async {
-    repository.fetchDesignersFlutterTestsWithError(page).then((newDesignersFlutterTests) {
+    repository.fetchDesignersFlutterTestsWithError(page)
+    .then((newDesignersFlutterTests) {
       setState(() {
         _designersJson = newDesignersFlutterTests['resultset'];
         _error = newDesignersFlutterTests['error'];
         _errorMessage = newDesignersFlutterTests['errorMessage'];
+      });
+    })
+    .catchError((e) {
+      setState(() {
+        _designersJson = [];
+        _error = true;
+        _errorMessage = 'Got error: $e';
       });
     });
   }
@@ -44,14 +51,24 @@ class _DesignersListState extends State<DesignersList> {
     final growableList = <Widget>[];
 
     if (_error == true) {
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error: $_errorMessage'))
-      );
+      // Se elimino porque al dar error la llamada al backend, aca se genera otro error
+      // que se transforma en Exception...
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //     SnackBar(content: Text('Error: $_errorMessage'))
+      // );
       return Column(
         children: <Widget>[
+          // ButtonBack(parentContext: context),
+          ButtonBack(),
           Text(
-            'Error: ' + _errorMessage
-          )
+            'Error en conexión a los servicios del App [BE-010]'
+          ),
+          Text(
+              'Detalle del Error:'
+          ),
+          Text(
+              _errorMessage
+          ),
         ],
       );
     }
@@ -67,8 +84,17 @@ class _DesignersListState extends State<DesignersList> {
       );
     });
 
-    return Column(
-      children: growableList,
+    return
+      SingleChildScrollView(
+        child:
+        Column(
+          children: [
+            ButtonBack(),
+            Column(
+                children: growableList,
+            ),
+          ],
+        ),
     );
 
   }

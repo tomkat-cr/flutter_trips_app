@@ -1,4 +1,4 @@
-// File: lib/config/constants.dart
+// File: lib/config/constants_example.dart
 // 2022-04-04 | CR
 // google: flutter how to configure a common constants file
 // What's the best practice to keep all the constants in Flutter?

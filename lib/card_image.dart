@@ -2,6 +2,7 @@
 // 2022-04-02 | CR
 
 import 'package:flutter/material.dart';
+import 'floating_action_button_green.dart';
 
 class CardImage extends StatelessWidget {
 
@@ -36,6 +37,15 @@ class CardImage extends StatelessWidget {
         ]
       ),
     );
-    return card;
+    // return card;
+    return Stack(
+      alignment: Alignment(0.9, 1.1), // Para que el boton verde aparezca debajo de la foto
+      children: [
+        card,
+        FloatingActionButtonGreen(
+          heroTag: pathImage,
+        ),
+      ]
+    );
   }
 }

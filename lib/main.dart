@@ -45,7 +45,7 @@ class PaginationApp extends StatelessWidget {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
-  String title = 'MEDIABROS Flutter I';
+  final String title = 'MEDIABROS Flutter I';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -163,6 +163,7 @@ class _MyHomePageState extends State<MyHomePage>
       ),
 
       floatingActionButton: FloatingActionButton(
+        heroTag: 'incrementCounter',
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),

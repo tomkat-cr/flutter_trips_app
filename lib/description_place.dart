@@ -4,6 +4,8 @@
 import 'package:flutter/material.dart';
 import 'get_stars.dart';
 import 'button_purple.dart';
+import 'presentation/designer_list_show.dart';
+import 'barcode_qr_scanner.dart';
 
 class DescriptionPlace extends StatelessWidget {
 
@@ -23,7 +25,7 @@ class DescriptionPlace extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final startList = getStars(
+    final startList = GetStars(
         stars: stars,
         size: 20,
         top: top,
@@ -76,9 +78,18 @@ class DescriptionPlace extends StatelessWidget {
       children: <Widget>[
         titleStars,
         longDescBox,
-        ButtonPurple(
-          buttonText: 'Navigate',
-        ),
+        Row(
+          children: [
+            ButtonPurple(
+              buttonText: 'Navigate',
+              onTapWidget: DesignerListShow(),
+            ),
+            ButtonPurple(
+              buttonText: 'Scan Barcode',
+              onTapWidget: BarcodeQrScanner(),
+            ),
+          ],
+        )
       ]
     );
 
